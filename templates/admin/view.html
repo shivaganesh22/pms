@@ -1,0 +1,46 @@
+{%extends 'admin/home.html'%}
+{%block main%}
+{%load static%}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="{%static 'css/style.css'%}" />
+
+       </style>
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    </head>
+    <body>
+        <div class="center">
+      
+            <div class="container">
+                
+                <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col" width="50px">#</th>
+                        <th scope="col" width="200px">STUDENT NAME</th>
+                        <th scope="col" width="200px">HALL TICKET</th>
+                        <th scope="col" width="300px">EMAIL</th>
+            
+                      </tr>
+                    </thead>
+                    <tbody class="aa">
+
+                        {%for i in students%}
+                      <tr>
+                        <th scope="row" width="50px">{{forloop.counter}}</th>
+                        <td width="200px">{{i.student.first_name}}</td>
+                        <td width="200px">{{i.student.username}}</td>
+                        <td width="300px">{{i.student.email}}</td>   
+                      </tr>
+                      {%endfor%}
+
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </body>
+</html>
+
+  {%endblock%}

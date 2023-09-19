@@ -1,0 +1,56 @@
+{%extends 'admin/home.html'%}
+{%block main%}
+{%load static%}
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8" />
+        <!-- Somehow I got an error, so I comment the title, just uncomment to show -->
+        <!-- <title>Popup Login Form Design | CodingNepal</title> -->
+        <link rel="stylesheet" href="{%static 'css/style.css'%}" />
+
+       </style>
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    </head>
+    <body>
+        <div class="center">
+      
+            <div class="container">
+                
+                <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col" width="10px">#</th>
+                        <th scope="col" width="150px">STUDENT NAME</th>
+                        <th scope="col" width="150px">HALL TICKET</th>
+                        <th scope="col" width="300px" >EMAIL</th>
+                        <th scope="col" width="150px">MANAGE</th>
+
+                        
+
+                      </tr>
+                    </thead>
+                    <tbody class="aa">
+
+                        {%for i in students%}
+                      <tr>
+                        <th scope="row" width="10px">{{forloop.counter}}</th>
+                        <td width="150px">{{i.first_name}}</td>
+                        <td width="150px">{{i.username}}</td>
+                        <td width="300px">{{i.email}}</td>
+                       
+                        <td width="200px"><a class="btn btn-warning" href="/a/studedit/{{i.id}}">EDIT</a>    <a class="btn btn-danger" href="/a/studdelete/{{i.id}}">DELETE</a></td>
+                    
+
+                      </tr>
+                      {%endfor%}
+
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </body>
+</html>
+
+  {%endblock%}

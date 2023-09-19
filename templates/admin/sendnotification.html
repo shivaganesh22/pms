@@ -1,0 +1,53 @@
+{%extends 'admin/home.html'%}
+{%block main%}
+{%load static%}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="{%static 'css/style.css'%}" />
+<style>
+    .container{
+        width:400px;
+       
+    }
+    
+.aa{
+margin-left: 30px;
+margin-top:25px;
+display: block;
+width:330px;
+height: 400px;
+overflow-y: auto;
+float: left;
+}
+.text{
+    margin-bottom: 30px;
+}
+input{
+    width:300px;
+}
+</style>
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    </head>
+    <body>
+        <div class="center">
+      
+            <div class="container">
+                
+               
+                <div class="text">Send Notification</div>
+                <form method="post" >
+                    {%csrf_token%}
+                   <input type="text" name="message" id="" placeholder="Enter message">
+                    
+                <div class="btn">
+                    <div class="inner"></div>
+                    <button type="submit">Send Notification</button>
+                </div>
+                </form>
+        </div>
+    </body>
+</html>
+
+  {%endblock%}

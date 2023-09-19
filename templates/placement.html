@@ -1,0 +1,56 @@
+{%extends 'index.html'%}
+{%block main%}
+{%load static%}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="{%static 'css/style.css'%}" />
+
+       </style>
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    </head>
+    <body>
+   
+        <div class="center">
+      
+            <div class="container">
+                
+                <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col" width="10px">#</th>
+                        <th scope="col" width="150px">COMPANY NAME</th>
+                        <th scope="col" width="150px">ANNUAL PACK</th>
+                        <th scope="col" width="150px">PLACE</th>
+                        <th scope="col" width="300px" >HIGHLIGHTS</th>
+                        <th scope="col" width="150px">MANAGE</th>
+
+                        
+
+                      </tr>
+                    </thead>
+                    <tbody class="aa">
+
+                        {%for i in companies%}
+                      <tr>
+                        <th scope="row" width="10px">{{forloop.counter}}</th>
+                        <td width="150px">{{i.name}}</td>
+                        <td width="150px">{{i.annualpack}}</td>
+                        <td width="150px">{{i.place}}</td>
+                        <td width="300px">{{i.highlights}}</td>
+                       
+                        <td width="200px"> <a class="btn btn-warning" href="/view/{{i.id}}">View Placements </a></td>
+                    
+
+                      </tr>
+                      {%endfor%}
+
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </body>
+</html>
+
+  {%endblock%}

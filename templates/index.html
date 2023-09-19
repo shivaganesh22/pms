@@ -1,0 +1,99 @@
+{%load static%}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Placement management system</title>
+    <link href="{%static 'css/bootstrap.min.css'%}" rel="stylesheet" >
+    <link href="{%static 'css/style.css'%}" rel="stylesheet" >
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Placement Management System</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="/highlights">Highlights
+                <span class="visu"></span>
+              </a>
+            </li>
+           
+           
+            <li class="nav-item">
+              <a class="nav-link" href="/placement">Placements</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/changepassword">Change Password</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/notifications">Notifications</a>
+            </li>
+           
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">LOGOUT</a>
+            </li>
+          </ul>
+         
+        </div>
+      </div>
+    </nav>
+    
+    {%block main%}
+    <style>
+      th,td{
+        width: 150px;
+      }
+      .container{
+        width:1000px;
+      }
+    </style>
+
+    <div class="center">
+      
+      <div class="container">
+        <div class="text">You are Placed Companies</div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col" >#</th>
+              <th scope="col" >COMPANY NAME</th>
+              <th scope="col" >ANNUAL PACK</th>
+              <th scope="col" >PLACE</th>
+              <th scope="col" >HIGHLIGHTS</th>
+              
+    
+              
+    
+            </tr>
+          </thead>
+          <tbody class="aa">
+          
+              {%for i in data%}
+            <tr>
+              <th scope="row">{{forloop.counter}}</th>
+              <td >{{i.company.name}}</td>
+              <td >{{i.company.annualpack}}</td>
+              <td >{{i.company.place}}</td>
+              <td >{{i.company.highlights}}</td>
+             
+              <td > <a class="btn btn-warning" href="/view/{{i.company.id}}">View All Placements </a></td>
+          
+    
+            </tr>
+            {%endfor%}
+    
+          </tbody>
+        </table>
+      </div>
+    </div>
+   
+   
+{%endblock%}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  </body>
+</html>

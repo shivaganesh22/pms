@@ -1,0 +1,60 @@
+{%extends 'admin/home.html'%}
+{%block main%}
+{%load static%}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8" />
+  
+        <link rel="stylesheet" href="{%static 'css/style.css'%}" />
+<style>
+.container{
+    width:400px;
+}
+</style>
+   
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    </head>
+    <body>
+        <div class="center">
+      
+            <div class="container">
+                
+                <div class="text">Fill Details</div>
+                {%if messages%}
+                {%for i in messages%}
+                <font  color="red" >*{{i}}</font> 
+                {%endfor%}
+                {%endif%}
+                <form method="post">
+                  {%csrf_token%}
+
+                    <div class="data">
+                        <label>Student name</label>
+                        <input type="text" name="name" required />
+                    </div>
+                    <div class="data">
+                        <label>College Email</label>
+                        <input type="email" name="email" required />
+                    </div>
+                    <div class="data">
+                        <label>Hall Ticket</label>
+                        <input type="text" name="username" required />
+                    </div>
+                    <div class="data">
+                        <label>Password</label>
+                        <input type="password" name="password" required />
+                    </div>
+                   
+                    <div class="btn">
+                        <div class="inner"></div>
+                        <button type="submit">login</button>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
+
+  {%endblock%}

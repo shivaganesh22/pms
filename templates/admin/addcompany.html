@@ -1,0 +1,45 @@
+{%extends 'admin/home.html'%}
+{%block main%}
+{%load static%}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="{%static 'css/style.css'%}" />
+<style>
+    .container{
+        width:400px;
+    }
+</style>
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    </head>
+    <body>
+        <div class="center">
+      
+            <div class="container">
+                <div class="text">Add Company</div>
+                {%if messages%}
+                {%for i in messages%}
+                <font  color="red" >*{{i}}</font> 
+                {%endfor%}
+                {%endif%}
+                <form method="post">
+                  {%csrf_token%}
+                  {%for i in form%}
+                    <div class="data">
+                        <label>{{i.label}}</label>
+                        {{i}}
+                    </div>
+                    {%endfor%}
+                    <div class="btn">
+                        <div class="inner"></div>
+                        <button type="submit">Submit</button>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
+
+  {%endblock%}
